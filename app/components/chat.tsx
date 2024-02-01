@@ -72,35 +72,44 @@ export default function Chat() {
     }, [messages, selectedModel]);
 
     return (
-        <div className="min-w-[-webkit-fill-available] mx-12">
-            {messages.length > 0 && (<div className="border rounded-md p-4 shadow-md mb-4">
-                {messages.map((message, index) => (
-                    <div key={index} className={`max-w-fit ${message.chatMessage.role === 'human' ? 'bg-blue-200' : 'bg-gray-200'} p-2 rounded-md mb-2`} >
-                        {message.chatMessage.content}
-                    </div>
-                ))}
-            </div>)}
-            <form onSubmit={handleMessageSubmit} className="flex items-center">
+        <div className="mx-2 md:mx-12">
+            {messages.length > 0 && (
+                <div className="border rounded-md p-4 shadow-md mb-4 bg-zinc-200">
+                    {messages.map((message, index) => (
+                        <div
+                            key={index}
+                            className={`max-w-fit ${message.chatMessage.role === 'human' ? 'bg-blue-200' : 'bg-gray-200'
+                                } p-2 rounded-md mb-2`}
+                        >
+                            {message.chatMessage.content}
+                        </div>
+                    ))}
+                </div>
+            )}
+            <form onSubmit={handleMessageSubmit} className="flex flex-col md:flex-row items-center">
                 <select
                     value={selectedModel}
                     onChange={handleModelChange}
-                    className="border rounded-md p-2 mr-2"
+                    className="border rounded-md p-2 mb-2 md:mr-2 md:mb-0"
                 >
                     <option value="">Select Model</option>
                     {Object.entries(models).map(([key, value]) => (
-                        <option key={key} value={value}>{value}</option>
+                        <option key={key} value={value}>
+                            {value}
+                        </option>
                     ))}
                 </select>
                 <input
                     type="text"
                     value={inputText}
                     onChange={(e) => setInputText(e.target.value)}
-                    className="form-control flex-1 border rounded-md p-2 mr-2"
-                    placeholder="Lets talk about it..."
+                    className="form-control border rounded-md p-2 mb-2 md:mr-2 md:flex-1"
+                    placeholder="Let's talk about it..."
                 />
                 <button
                     type="submit"
-                    className="btn btn-primary px-4 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600">
+                    className="btn btn-primary px-4 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600"
+                >
                     Send
                 </button>
             </form>
