@@ -72,14 +72,14 @@ export default function Chat() {
     }, [messages, selectedModel]);
 
     return (
-        <div className="mx-2 md:mx-12">
+        <div className="mx-2 md:mx-12 container">
             {messages.length > 0 && (
                 <div className="border rounded-md p-4 shadow-md mb-4 bg-zinc-200">
                     {messages.map((message, index) => (
                         <div
                             key={index}
                             className={`max-w-fit ${message.chatMessage.role === 'human' ? 'bg-blue-200' : 'bg-gray-200'
-                                } p-2 rounded-md mb-2`}
+                                } p-2 rounded-md mb-2 leading-relaxed break-normal`}
                         >
                             {message.chatMessage.content}
                         </div>

@@ -20,6 +20,7 @@ export default function Home() {
       <Suspense fallback={<></>}>
         <Chat />
       </Suspense>
+      <br />
     </main>
   );
 }
