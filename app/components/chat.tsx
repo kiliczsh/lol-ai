@@ -86,11 +86,11 @@ export default function Chat() {
                     ))}
                 </div>
             )}
-            <form onSubmit={handleMessageSubmit} className="flex flex-col md:flex-row items-center">
+            <form onSubmit={handleMessageSubmit} className="flex flex-col md:flex-row items-center justify-center">
                 <select
                     value={selectedModel}
                     onChange={handleModelChange}
-                    className="border rounded-md p-2 mb-2 md:mr-2 md:mb-0"
+                    className="border rounded-md p-2 mb-2 md:mr-2"
                 >
                     <option value="">Select Model</option>
                     {Object.entries(models).map(([key, value]) => (
