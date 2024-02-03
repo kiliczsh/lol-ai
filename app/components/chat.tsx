@@ -2,6 +2,8 @@
 import { ChatMessage, ChatModelId } from "@ampt/ai";
 import { FormEvent, useEffect, useState } from "react";
 import { ChatData, ChatRequest } from "../types";
+import { Fragment } from "react";
+import Block from "./block";
 
 export default function Chat() {
     const [models, setModels] = useState({
@@ -58,6 +60,7 @@ export default function Chat() {
                 setMessages(prevMessages => prevMessages.map(message => ({ ...message, isSharedAi: true })));
 
                 const { data } = await response.json();
+                console.log(data);
                 const aiMessage: ChatMessage = { content: data, role: 'assistant' };
                 const aiMessageData: ChatData = { chatMessage: aiMessage, isSharedAi: true };
                 setMessages(prevMessages => [...prevMessages, aiMessageData]);
@@ -81,7 +84,7 @@ export default function Chat() {
                             className={`max-w-fit ${message.chatMessage.role === 'human' ? 'bg-blue-200' : 'bg-gray-200'
                                 } p-2 rounded-md mb-2 leading-relaxed break-normal`}
                         >
-                            {message.chatMessage.content}
+                            <Block {...message.chatMessage} />
                         </div>
                     ))}
                 </div>
