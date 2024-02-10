@@ -9,3 +9,8 @@ Happy coding!
 
 
 ![LoL AI Chat UI](lolai.png)
+
+
+### Repository Activity
+
+![Alt](https://repobeats.axiom.co/api/embed/e7b0929c8f03bd4cfec5615fa40c98a378531f81.svg "Repo Analytics")
